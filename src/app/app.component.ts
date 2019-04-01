@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
  posts = [];
-
+ postid = null;
  constructor(private Http: HttpClient) {
 
  }
