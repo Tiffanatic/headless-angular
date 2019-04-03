@@ -1,27 +1,2 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Posts
-  </h1>
-  <li *ngFor="let post of posts" (Click)="onclickevent()">
-    {{post.title.rendered}} 
-    {{post.date}} <br>
-    Dette er et udtræk: 
-    {{post.excerpt.rendered}} <br>
-    {{post.id}} <br>
-    
-    
-    
-  </li>
-</div>
-
-<div class="row">
-  <div *ngIf="selectedpost">
-    <h2>{{selectedpost.title | uppercase}} Details</h2>
-    <div><span>id: </span>{{selectedpost.id}}</div>
-    <div>
-      <label>name:
-      </label>
-    </div>
-  </div>
-</div>
+<app-posts></app-posts>

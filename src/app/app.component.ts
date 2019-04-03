@@ -7,30 +7,8 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
- posts = [];
 
- constructor(private Http: HttpClient) {
-
- }
- selectedpost;
- onSelected(post) {
- this.selectedpost = post;
- }
-
-onclickevent() {
-  console.log(1);
+export class AppComponent {
+ 
 }
 
-
- ngOnInit(): void {
-   this.Http.get('http://localhost:88/wordpress/wp-json/wp/v2/posts').subscribe(data => {
-     for (let key in data) {
-      if (data.hasOwnProperty(key)) {
-        this.posts.push(data[key]);
-      }
-     }
-     console.log(this.posts);
-   });
- }
-}

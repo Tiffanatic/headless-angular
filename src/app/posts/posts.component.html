@@ -1,0 +1,25 @@
+<div style="text-align:center">
+  <h1>
+    Posts
+  </h1>
+  <li *ngFor="let post of posts">
+    {{post.title.rendered}} 
+    {{post.date}} <br>
+    Dette er et udtræk: 
+    {{post.excerpt.rendered}} <br>
+    post id: {{post.id}} <br>
+    <button type="button" (click)="onSelected(post)">klik</button>
+    
+    
+  </li>
+</div>
+
+<div class="row">
+  <div *ngIf="selectedpost">
+    <h2>{{selectedpost.title.rendered}} Details</h2>
+    <div><span>id: </span>{{selectedpost.id}}</div>
+    <div>
+      <p>{{selectedpost.content.rendered}}</p>
+    </div>
+  </div>
+</div>
