@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Subject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-posts',
@@ -8,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class PostsComponent implements OnInit {
   posts = [];
-
+  private searchTerms = new Subject<string>();
   constructor(private Http: HttpClient) {
 
   }
@@ -19,8 +20,14 @@ onSelected(post) {
 onClickEvent() {
    console.log(1);
  }
+search(term: string) {
+  this.searchTerms.next(term);
+}
 
   ngOnInit(): void {
+    this.getheroes();
+  }
+  getheroes() {
     this.Http.get('http://localhost:88/wordpress/wp-json/wp/v2/posts').subscribe(data => {
       for (let key in data) {
        if (data.hasOwnProperty(key)) {
@@ -29,6 +36,9 @@ onClickEvent() {
       }
       console.log(this.posts);
     });
+  }
+  searchInit() {
+
   }
 
 }

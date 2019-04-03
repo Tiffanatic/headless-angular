@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
 import { PostsComponent } from './posts/posts.component';
 import { from } from 'rxjs';
+import { PostSearchComponent } from './post-search/post-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PostComponent,
-    PostsComponent
+    PostsComponent,
+    PostSearchComponent
   ],
   imports: [
     BrowserModule,
