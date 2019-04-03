@@ -1,5 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root',
@@ -8,15 +9,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
  posts = [];
- @Output() postid = new EventEmitter<void>();
+
  constructor(private Http: HttpClient) {
 
  }
-
- onSelected(id) {
-  this.postid.emit();
-  console.log(this.postid);
+ selectedpost;
+ onSelected(post) {
+ this.selectedpost = post;
  }
+
+onclickevent() {
+  console.log(1);
+}
+
 
  ngOnInit(): void {
    this.Http.get('http://localhost:88/wordpress/wp-json/wp/v2/posts').subscribe(data => {
